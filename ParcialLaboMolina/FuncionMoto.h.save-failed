@@ -1,0 +1,44 @@
+typedef struct
+{
+    int id;
+    char marca[21];
+    int idTipo;
+    int idColor;
+    int cilindrada;
+    int isEmpty;
+}mMotos;
+
+int initMotos(mMotos list[], int tam);
+
+int altaMotos(mMotos list[], cColor listC[], int tam, int tamC, int initID);
+
+int addMotos(mMotos list[], int tam, int initID);
+
+int buscarMotoLibre(mMotos list[], int tam);
+
+int menuPrincipal(char mensaje[]);
+
+int imprimirEmpleados(mMotos list[], int tam, int flag);
+
+int printMoto(mMotos list[], int tam, int flag);
+
+int flagAlta(int flag);
+
+int bajaEmpleado(mMotos list[], int tam,int flag);
+
+int removeEmployee(mMotos list[], int tam, int id);
+
+int findMotoById(mMotos list[], int tam, int id);
+
+int modifyMotos(mMotos list[],int tam,int id);
+
+int modificarMotos(mMotos list[], int tam,int flag);
+
+int validacionTipo(int aux);
+
+float validacionColor(int aux);
+
+char* validacionMarcaMoto(char marcaMoto[]);
+
+int ordenamientoEmpleados(mMotos list[], int tam, int orden);
+

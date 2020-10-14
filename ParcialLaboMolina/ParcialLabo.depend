@@ -1,0 +1,136 @@
+# depslib dependency file v1.0
+1601673623 source:d:\facultad\ejercicios prog\tp2_molina\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayEmployees.h"
+
+1601666617 d:\facultad\ejercicios prog\tp2_molina\arrayemployees.h
+
+1601597623 source:d:\facultad\ejercicios prog\tp2_molina\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayEmployees.h"
+
+1602687535 source:d:\facultad\parciallabomolina\main.c
+	<stdio.h>
+	<stdlib.h>
+	"FuncionMoto.h"
+	"Color.h"
+	"Tipo.h"
+	"Validaciones.h"
+	"Servicio.h"
+	"Trabajo.h"
+	"Fecha.h"
+
+1602626210 d:\facultad\parciallabomolina\arrayemployees.h
+
+1602686815 source:d:\facultad\parciallabomolina\color.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"FuncionMoto.h"
+	"Color.h"
+	"Tipo.h"
+	"Validaciones.h"
+	"Servicio.h"
+	"Trabajo.h"
+	"Fecha.h"
+
+1602685183 d:\facultad\parciallabomolina\funcionmoto.h
+	"Color.h"
+	"Tipo.h"
+	"Validaciones.h"
+
+1602685008 d:\facultad\parciallabomolina\color.h
+
+1602684810 d:\facultad\parciallabomolina\tipo.h
+
+1602686815 source:d:\facultad\parciallabomolina\tipo.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"FuncionMoto.h"
+	"Color.h"
+	"Tipo.h"
+	"Validaciones.h"
+	"Servicio.h"
+	"Trabajo.h"
+	"Fecha.h"
+
+1602686815 source:d:\facultad\parciallabomolina\funcionmoto.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"FuncionMoto.h"
+	"Color.h"
+	"Tipo.h"
+	"Validaciones.h"
+	"Servicio.h"
+	"Trabajo.h"
+	"Fecha.h"
+
+1602684538 d:\facultad\parciallabomolina\validaciones.h
+
+1602686927 source:d:\facultad\parciallabomolina\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"FuncionMoto.h"
+	"Color.h"
+	"Tipo.h"
+	"Validaciones.h"
+	"Servicio.h"
+	"Trabajo.h"
+	"Fecha.h"
+
+1602685997 d:\facultad\parciallabomolina\servicio.h
+
+1602686815 source:d:\facultad\parciallabomolina\servicio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"FuncionMoto.h"
+	"Color.h"
+	"Tipo.h"
+	"Validaciones.h"
+	"Servicio.h"
+	"Trabajo.h"
+	"Fecha.h"
+
+1602687679 source:d:\facultad\parciallabomolina\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"FuncionMoto.h"
+	"Color.h"
+	"Tipo.h"
+	"Validaciones.h"
+	"Servicio.h"
+	"Trabajo.h"
+	"Fecha.h"
+
+1602686892 source:d:\facultad\parciallabomolina\fecha.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"FuncionMoto.h"
+	"Color.h"
+	"Tipo.h"
+	"Validaciones.h"
+	"Servicio.h"
+	"Trabajo.h"
+	"Fecha.h"
+
+1602687535 d:\facultad\parciallabomolina\trabajo.h
+
+1602686892 d:\facultad\parciallabomolina\fecha.h
+
