@@ -28,7 +28,7 @@ int main()
     hardcodearColor(listC,TAMC);
     hardcodearTipos(listT,TAMT);
     do{
-            opcion=menuPrincipal("ABM Service Motos\n1.ALTA MOTO\n2.BAJA MOTO\n3.MODIFICAR MOTO\n4.IMPRIMIR MOTO\n5.SALIR\n");
+            opcion=menuPrincipal("ABM Service Motos\n1.ALTA MOTO\n2.BAJA MOTO\n3.MODIFICAR MOTO\n4.IMPRIMIR MOTO\n5.LISTAR TIPO\n6.LISTAR COLOR\n7.LISTAR SERVICIO\n8.ALTA TRABAJO\n10.SALIR\n");
 
             switch(opcion){
 
