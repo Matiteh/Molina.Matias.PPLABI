@@ -34,4 +34,23 @@ int printTipo(tTipo listT[], int tamT){
 
     return 0;
 }
-
+int devolverIdTipo(mMotos list[],tTipo listT[],int tamT,int i){
+    int aux=0;
+    for(int j=0;j<tamT;j++){
+        if(list[i].idTipo==listT[j].id){
+            aux=j;
+            break;
+        }
+    }
+    return aux;
+}
+int devolverIdTipoInforme(tTipo listT[],int tamT,int tipo){
+       int aux=0;
+    for(int j=0;j<tamT;j++){
+        if(tipo==listT[j].id){
+            aux=j;
+            break;
+        }
+    }
+    return aux;
+}

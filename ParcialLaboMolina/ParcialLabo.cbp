@@ -43,6 +43,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="FuncionMoto.h" />
+		<Unit filename="Informes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Informes.h" />
 		<Unit filename="Servicio.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -30,6 +30,15 @@ int printServicio(sServicio listS[], int tamS){
     for(int i=0;i<tamS;i++){
         printf("%d |%2s %d\n", listS[i].id, listS[i].descripcion,listS[i].precio);
     }
-
     return 0;
+}
+int devolverDescripcion(tTrabajo listTrabajo[],sServicio listS[],int tamS,int i){
+    int aux=0;
+    for(int j=0;j<tamS;j++){
+        if(listTrabajo[i].idServicio==listS[j].id){
+            aux=j;
+            break;
+        }
+    }
+    return aux;
 }

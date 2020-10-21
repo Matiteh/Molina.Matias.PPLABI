@@ -34,3 +34,22 @@ int printColor(cColor listC[], int tamC){
 
     return 0;
 }
+int printColorImprimir(mMotos list[], cColor listC[], int tamC, int aux){
+    int auxId=0;
+    for(int i=0; i<tamC;i++){
+        if(list[aux].idColor == listC[i].id){
+            auxId=i;
+        }
+    }
+    return auxId;
+}
+int devolverIdColorInforme(cColor listC[],int tamC,int color){
+       int aux=0;
+    for(int j=0;j<tamC;j++){
+        if(color==listC[j].id){
+            aux=j;
+            break;
+        }
+    }
+    return aux;
+}

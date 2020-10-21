@@ -20,13 +20,18 @@ int validacionTipo(int aux){
     }
     return isError;
 }
-int validacionId(int aux){
+int validacionId(mMotos list[],int tam, int aux){
     int isError=1;
-    if(aux>0){
-        isError=0;
-    }else{
-        printf("ID Invalida!\n");
+    for (int i=0;i<tam;i++){
+        if(aux>0 && (aux != list[i].id)){
+            isError=0;
+        }else{
+            printf("ID Invalida!\n");
+            isError=1;
+            break;
+        }
     }
+
     return isError;
 }
 
@@ -39,6 +44,7 @@ int validacionColor(int aux){
     }
     return isError;
 }
+
 char* validacionMarcaMoto(char marcaMoto[]){
 
     strlwr(marcaMoto);
@@ -51,12 +57,48 @@ char* validacionMarcaMoto(char marcaMoto[]){
     }
     return marcaMoto;
 }
-int validacionFecha(fFecha listF){
+int validacionAno(int aux){
     int isError=1;
-    if(listF.ano>2019 && (listF.dia>0 && listF.dia<32)&& (listF.mes>0 && listF.mes<13)){
+    if(aux>2019){
         isError=0;
     }else{
-        printf("Fecha Incorrecta!\n");
+        printf("Ano Incorrecto!\n");
+    }
+    return isError;
+}
+int validacionDia(int aux){
+    int isError=1;
+    if(aux>0 && aux<32){
+        isError=0;
+    }else{
+        printf("Dia Incorrecto!\n");
+    }
+    return isError;
+}
+int validacionMes(int aux){
+    int isError=1;
+    if(aux>0 && aux<13){
+        isError=0;
+    }else{
+        printf("Mes Incorrecto!\n");
+    }
+    return isError;
+}
+int validacionCilindrada(int aux){
+    int isError=1;
+    if(aux!= 50 && aux!= 125 && aux!= 500 && aux!= 600 && aux!= 750){
+        printf("Cilindrada Incorrecta!\n");
+    }else{
+        isError=0;
+    }
+    return isError;
+}
+int validacionServicio(int aux){
+    int isError=1;
+    if(aux>19999 && aux<20004){
+        isError=0;
+    }else{
+        printf("Servicio Incorrecto!\n");
     }
     return isError;
 }

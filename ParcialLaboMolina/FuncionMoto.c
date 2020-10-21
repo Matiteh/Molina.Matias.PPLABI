@@ -54,28 +54,36 @@ int addMotos(mMotos list[], cColor listC[], tTipo listT[], int tam, int tamC, in
             do{
                 printf("Ingrese ID: ");
                 scanf("%d", &aux);
+                system("cls");
                 nuevaMoto.id=aux;
-            }while(validacionId(aux)!=0);
+            }while(validacionId(list, tam, aux)!=0);
 
             do{
                 printTipo(listT,tamT);
                 printf("Ingrese Tipo: ");
                 scanf("%d", &aux);
+                system("cls");
                 nuevaMoto.idTipo=aux;
             }while(validacionTipo(aux)!=0);
             printf("Ingrese Marca de moto: ");
             fflush(stdin);
             gets(nuevaMoto.marca);
+            system("cls");
             strcpy(validacionMarcaMoto(nuevaMoto.marca), nuevaMoto.marca);
             do{
                 printColor(listC,tamC);
                 printf("Ingrese Color: ");
                 scanf("%d", &aux);
+                system("cls");
                 nuevaMoto.idColor=aux;
             }while(validacionColor(aux)!=0);
-            printf("Ingrese Cilindrada 50/125/500/600/750: ");
-            scanf("%d", &aux);
-            nuevaMoto.cilindrada=aux;
+            do{
+                printf("Ingrese Cilindrada 50/125/500/600/750: ");
+                scanf("%d", &aux);
+                system("cls");
+                nuevaMoto.cilindrada=aux;
+
+            }while(validacionCilindrada(aux)!=0);
 
             list[indice]= nuevaMoto;
 
@@ -104,28 +112,10 @@ int imprimirMotos(mMotos list[], cColor listC[], tTipo listT[], int tam, int tam
                 printf("ID |Tipo  |Marca  |Cilindrada |Color\n");
                 for(int i=0;i<tam;i++){
                     if(list[i].isEmpty==FALSE){
-                        printf("%2d |%5s |%5s |%2d |%5s\n", list[i].id, listT[i].descripcion, list[i].marca, list[i].cilindrada, listC[i].nombreColor);
+                        printf("%2d |%5s |%5s |%2d |%5s\n", list[i].id, listT[devolverIdTipo(list,listT,tamT,i)].descripcion, list[i].marca, list[i].cilindrada, listC[printColorImprimir(list,listC , tamC, i)].nombreColor);
                     }
                 }
 
-                /*opcion=menuPrincipal("\n1.ASCENDENTE\n2.DESCENDENTE\n3.MENU PRINCIPAL\n");
-
-                switch(opcion){
-
-                    case 1:
-                        opcion=ordenamientoEmpleados(list, tam, opcion);
-                        break;
-
-                    case 2:
-                        opcion=ordenamientoEmpleados(list, tam, opcion);
-                        break;
-
-                    case 3:
-                        opcion=3;
-                        break;
-                }*/
-                system("pause");
-                system("cls");
                 opcion=3;
         }while(opcion != 3);
     }else{
@@ -137,18 +127,18 @@ int imprimirMotos(mMotos list[], cColor listC[], tTipo listT[], int tam, int tam
 
 int flagAlta(int flag){
     if(flag==0){
-        printf("No se puede usar esta opcion hasta que se realize la primera ALTA\n");
+        printf("No se puede usar esta opcion hasta que se realize la primera ALTA de moto\n");
     }
     return 0;
 }
 
-int bajaMoto(mMotos list[], cColor listC[], tTipo listT[], int tam, int tamC, int tamT, int flag){
+int bajaMoto(mMotos list[], cColor listC[], tTipo listT[],tTrabajo listTrabajo[], int tam, int tamC, int tamT, int flag){
     int aux;
     if(flag!=0){
-        printMoto(list,listC,listT, tam,tamC,tamT, flag);
+        printMoto(list,listC,listT, tam,tamC,tamT);
         printf("\nIngrese el ID de la moto a dar de baja: ");
         scanf("%d", &aux);
-        aux=removeMoto(list,tam, aux);
+        aux=removeMoto(list,listTrabajo,tam, aux);
         if(aux==0){
             printf("No se a encontrado la moto\n");
         }else if(aux==1){
@@ -162,7 +152,7 @@ int bajaMoto(mMotos list[], cColor listC[], tTipo listT[], int tam, int tamC, in
     }
     return flag;
 }
-int removeMoto(mMotos list[], int tam, int id){
+int removeMoto(mMotos list[],tTrabajo listTrabajo[], int tam, int id){
     char resp;
     int encontrado=0;
     int aux;
@@ -177,7 +167,11 @@ int removeMoto(mMotos list[], int tam, int id){
             encontrado=1;
 
         }else{
-
+            for(int i=0;i<tam;i++){
+                if(listTrabajo[i].idMoto== list[aux].id){
+                    listTrabajo[i].isEmpty=TRUE;
+                }
+            }
             list[aux].isEmpty=TRUE;
         }
     }
@@ -195,25 +189,20 @@ int findMotoById(mMotos list[], int tam, int id){
     return indice;
 }
 
-int printMoto(mMotos list[], cColor listC[], tTipo listT[], int tam, int tamC, int tamT, int flag){
-    if(flag!=0){
-        printf("ID |Tipo  |Marca  |Cilindrada |Color\n");
-        for(int i=0;i<tam;i++){
-            if(list[i].isEmpty==FALSE){
-                printf("%2d |%5s |%5s |%2d |%5s\n", list[i].id, listT[i].descripcion, list[i].marca, list[i].cilindrada, listC[i].nombreColor);
-            }
+int printMoto(mMotos list[], cColor listC[], tTipo listT[], int tam, int tamC, int tamT){
+    printf("ID |Tipo  |Marca  |Cilindrada |Color\n");
+    for(int i=0;i<tam;i++){
+        if(list[i].isEmpty==FALSE){
+            printf("%2d |%5s |%5s |%2d |%5s\n", list[i].id, listT[devolverIdTipo(list,listT,tamT,i)].descripcion, list[i].marca, list[i].cilindrada, listC[printColorImprimir(list,listC , tamC, i)].nombreColor);
         }
-    }else{
-        flagAlta(flag);
     }
-
     return 0;
 }
 
 int modificarMotos(mMotos list[], cColor listC[], tTipo listT[], int tam, int tamC, int tamT,int flag){
     int aux;
     if(flag!=0){
-        printMoto(list,listC,listT, tam,tamC,tamT, flag);
+        printMoto(list,listC,listT, tam,tamC,tamT);
         printf("\nIngrese el ID de la moto a modificar: ");
         fflush(stdin);
         scanf("%d", &aux);
@@ -281,49 +270,24 @@ int modifyMotos(mMotos list[], cColor listC[], tTipo listT[], int tam, int tamC,
     }
     return encontrado;
 }
+int sumaFecha(tTrabajo listTrabajo[], int i){
 
-/*int ordenamientoEmpleados(eEmployee list[], int tam, int orden){
-    int comp;
-    eEmployee auxEmpleado;
+    return((listTrabajo[i].Fecha.ano*100)+listTrabajo[i].Fecha.mes)*100+listTrabajo[i].Fecha.dia;
+}
 
-    switch(orden){
-        case 1:
-            for(int i=0;i<tam-1;i++){
-                if(list[i].isEmpty == FALSE){
-                    for(int j=i+1;j<tam;j++){
-                        if(list[j].isEmpty == FALSE){
-                            comp=stricmp(list[i].apellido,list[j].apellido);
-                            if(comp>=0 && list[i].sector==list[j].sector){
-                                auxEmpleado=list[i];
-                                list[i]=list[j];
-                                list[j]=auxEmpleado;
-                            }
-                        }
-                    }
+int ordenamientoFecha(tTrabajo listTrabajo[], int tam){
+    tTrabajo auxTrabajo;
+    for(int i=0;i<tam-1;i++){
+        if(listTrabajo[i].isEmpty == FALSE){
+            for(int j=i+1;j<tam;j++){
+                if(sumaFecha(listTrabajo,i)>sumaFecha(listTrabajo,j)){
+                    auxTrabajo=listTrabajo[i];
+                    listTrabajo[i]=listTrabajo[j];
+                    listTrabajo[j]=auxTrabajo;
                 }
-
             }
-            break;
+        }
 
-        case 2:
-            for(int i=0;i<tam-1;i++){
-                if(list[i].isEmpty == FALSE){
-                    for(int j=i+1;j<tam;j++){
-                        if(list[j].isEmpty == FALSE){
-                            comp=stricmp(list[i].apellido,list[j].apellido);
-                            if(comp<=0 && list[i].sector==list[j].sector){
-                                auxEmpleado=list[i];
-                                list[i]=list[j];
-                                list[j]=auxEmpleado;
-                            }
-                        }
-                    }
-                }
-
-            }
-            break;
     }
-
-    return orden;
-}*/
-
+    return 0;
+}
